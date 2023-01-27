@@ -29,7 +29,7 @@ const SecondPage = ({ fullpageApi, Video, Title }) => {
   };
 
   const handleFullScreen = () => {
-    const element = document.getElementById("player");
+    const element = document.getElementById("player1");
     if (screenfull.isEnabled) {
       screenfull.toggle(element);
     }
@@ -41,7 +41,7 @@ const SecondPage = ({ fullpageApi, Video, Title }) => {
       <div className="h-screen flex justify-between items-center firstPage">
         <div
           className="w-[50%] h-screen player-box cursor-pointer"
-          id="player"
+          id="player1"
           onClick={() => setPlaying(!Playing)}
           onMouseEnter={() => setVisible(true)}
           onMouseLeave={() => setVisible(false)}
