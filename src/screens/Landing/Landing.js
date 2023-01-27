@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import Firstpage from "../FirstPage/Firstpage";
 import SecondPage from "../SecondPage/SecondPage";
 import ReactFullpage from "@fullpage/react-fullpage";
 
 const Landing = () => {
+  const [Video, setVideo] = useState("campaign");
+  const [Title, setTitle] = useState('Download "Campus Structure Guide"');
+
   return (
     <>
       <ReactFullpage
@@ -18,10 +21,18 @@ const Landing = () => {
           return (
             <ReactFullpage.Wrapper>
               <div className="section">
-                <Firstpage fullpageApi={fullpageApi} />
+                <Firstpage
+                  fullpageApi={fullpageApi}
+                  setVideo={setVideo}
+                  setTitle={setTitle}
+                />
               </div>
               <div className="section">
-                <SecondPage fullpageApi={fullpageApi} />
+                <SecondPage
+                  fullpageApi={fullpageApi}
+                  Video={Video}
+                  Title={Title}
+                />
               </div>
             </ReactFullpage.Wrapper>
           );

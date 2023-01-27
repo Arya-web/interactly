@@ -6,14 +6,14 @@ import PauseLogo from "../../images/pause-svg.svg";
 import FullScreen from "../../images/full-screen-svg.svg";
 import screenfull from "screenfull";
 
-const Firstpage = ({ fullpageApi }) => {
+const Firstpage = ({ fullpageApi, setVideo, setTitle }) => {
   const [Playing, setPlaying] = useState(true);
   const [PlayingLogo, setPlayingLogo] = useState(true);
   const [Visible, setVisible] = useState(true);
   const [Progress, setProgress] = useState(0);
   const [Played, setPlayed] = useState(0);
   const [Total, setTotal] = useState(0);
-  const [playbackRate, setplaybackRate] = useState(2);
+  const [playbackRate, setplaybackRate] = useState(1);
 
   const handleProgress = (state) => {
     if (isNaN(state.played)) return;
@@ -36,7 +36,9 @@ const Firstpage = ({ fullpageApi }) => {
   };
 
   const handlePageNav = (video, title) => {
-    console.log(video+title);
+    setVideo(video);
+    setTitle(title);
+    fullpageApi.moveSectionDown();
   };
 
   return (
@@ -127,7 +129,6 @@ const Firstpage = ({ fullpageApi }) => {
           <div className="space-y-4">
             <button
               className="text-3xl font-bold underline mb-5"
-              onClick={() => fullpageApi.moveSectionDown()}
             >
               {/* First Page! */}
             </button>
@@ -141,8 +142,8 @@ const Firstpage = ({ fullpageApi }) => {
               <div className="text-lg flex justify-center items-center px-2 bg-purple-500 text-white rounded-full mt-1">
                 <span>A</span>
               </div>
-              <div className="text-xl flex justify-center items-center py-1">
-                <span>Lorem Ipsum</span>
+              <div className="text-lg flex justify-center items-center py-1">
+                <span>Campaign Structure</span>
               </div>
             </div>
             <div
@@ -152,8 +153,8 @@ const Firstpage = ({ fullpageApi }) => {
               <div className="text-lg flex justify-center items-center px-2 bg-purple-500 text-white rounded-full mt-1">
                 <span>B</span>
               </div>
-              <div className="text-xl flex justify-center items-center py-1">
-                <span>Lorem Ipsum</span>
+              <div className="text-lg flex justify-center items-center py-1">
+                <span>Learn Facebook basics</span>
               </div>
             </div>
             <div
@@ -166,8 +167,8 @@ const Firstpage = ({ fullpageApi }) => {
               <div className="text-lg flex justify-center items-center px-2 bg-purple-500 text-white rounded-full mt-1">
                 <span>C</span>
               </div>
-              <div className="text-xl flex justify-center items-center py-1">
-                <span>Lorem Ipsum</span>
+              <div className="text-lg flex justify-center items-center py-1">
+                <span>3rd choice</span>
               </div>
             </div>
           </div>
